@@ -188,7 +188,7 @@ API를 잘 사용할 수 있게 됐습니다.
 
 ## 저장 프로세스
 
-![](docs/assets/zoom_arch.jpg)
+![](docs/assets/zoom_yeardream.png)
 
 코드 : https://github.com/beardfriend/collect_engine/blob/1ee25fc4c83fd717e087817b4824e0aa2ba9c126/airflow/dags/live_chat_records.py#L190
 
