@@ -182,7 +182,7 @@ html script에 파라메터 값과 같은 문자열이 존재했습니다.
 
 `window.recordingMobilePlayData` 의 field id에 원하는 값이 들어가있었습니다.
 
-https://github.com/beardfriend/collect_engine/blob/1ee25fc4c83fd717e087817b4824e0aa2ba9c126/airflow/dags/collectors/zoom.py#L50
+https://github.com/beardfriend/collect_engine/blob/1ee25fc4c83fd717e087817b4824e0aa2ba9c126/airflow/dags/collectors/zoom.py#L44-L66
 
 API를 잘 사용할 수 있게 됐습니다.
 
@@ -190,7 +190,7 @@ API를 잘 사용할 수 있게 됐습니다.
 
 ![](docs/assets/zoom_yeardream.png)
 
-코드 : https://github.com/beardfriend/collect_engine/blob/1ee25fc4c83fd717e087817b4824e0aa2ba9c126/airflow/dags/live_chat_records.py#L190
+코드 : https://github.com/beardfriend/collect_engine/blob/1ee25fc4c83fd717e087817b4824e0aa2ba9c126/airflow/dags/live_chat_records.py#L190-L219
 
 19시, 20시, 21시, 22시 airflow가 스케쥴에 맞게 프로그램을 실행시킵니다.  
 슬랙에서 메세지를 가져옵니다.
