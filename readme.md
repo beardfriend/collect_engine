@@ -18,7 +18,7 @@
 
 ## 불편함
 
-이어드림은 AI 개발자 양성과정입니다.
+이어드림은 AI 개발자 양성과정에 참여하고 있습니다.
 
 ![](https://github.com/beardfriend/fastcampus_data_eda/raw/main/assets/buy_refund_count.jpg)
 
