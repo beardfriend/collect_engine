@@ -24,14 +24,13 @@
 
 ## 구상
 
-학생들이 줌, 슬랙에서 채팅을 입력합니다.  
-채팅 데이터를 사용하여 서비스를 만든다면
 
 1. 데이터를 크롤링을 통해 수집할 수 있다.
 2. 강의가 진행되면 데이터는 지속적으로 발생한다.
 3. 서비스가 최소 한 명에게 흥미를 끌 수 있다.
 
-세 가지를 충족시키는 서비스입니다.
+세 가지를 충족시키는 서비스를 원했습니다.
+
 
 ### 일반 서비스
 
@@ -39,14 +38,16 @@
 그래프를 그린다면, 수업 참여도를 파악할 수 있습니다.  
 X축을 10분단위로 보여준다면  
 강의에 질문이 있거나 중요한 부분을 유추할 수 있습니다.  
+
+
 ![](https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)
 
 줌 채팅에 이모티콘, 채팅으로 댓글을 남길 수 있는데  
 반응이 좋은 채팅 TOP10을 보여준다면  
 유용한 댓글을 파악할 수 있습니다.
 
-개인별로 내가 어떤 채팅을 쳤는지 보여주고  
-워드 임베딩 이후 많이 사용한 단어를 보여준다면  
+개인별로 지금까지 어떤 채팅을 쳤는지 보여주고  
+많이 사용한 단어를 보여준다면  
 흥미를 끌 수 있을 것 같습니다.
 
 이런 서비스가 있다면 채팅 참여도를 올려  
@@ -96,16 +97,17 @@ X축을 10분단위로 보여준다면
 
 ![](https://github.com/beardfriend/zoom_chatting_parser/raw/main/docs/chat_save.png)  
 줌 앱에 채팅 저장하기 기능이 있습니다.  
-txt파일 내부에 일련의 규칙이 있습니다.  
-규칙에 맞게 데이터를 가져오는 라이브러리를 만들었습니다.  
+.txt 파일로 저장됩니다.
+일련의 규칙이 있습니다.  
+분석하여 파싱하는 라이브러리를 제작했습니다.  
+
 https://github.com/beardfriend/zoom_chatting_parser
 
 ![](docs/assets/zoom_stats.jpg)  
-라이브러리를 이용하여  
-채팅 txt파일을 분석하고  
-데이터베이스에 넣는 API를 만들었습니다.
 
-그리고 간단한 통계 API와 UI를 구현했습니다.  
+데이터베이스에 입력하는 API,  
+간단한 통계 API를 제작했습니다.  
+UI를 구현했습니다.  
 https://github.com/beardfriend/zoom_stats
 
 채팅을 수동으로 저장하는 것이 꽤 귀찮았습니다.
@@ -122,7 +124,7 @@ https://github.com/beardfriend/zoom_stats
 ![](docs/assets/slack.png)
 
 링크를 클릭하여 들어가,  
-비밀번호를 입력하면
+비밀번호를 입력합니다.
 
 ![](docs/assets/chat01.jpg)
 
@@ -137,15 +139,14 @@ ZOOM API를 사용하면 채팅데이터를 가져올 수 있습니다.
 이 파라메터를 넣지 않으면 API요청을 거절당합니다.
 
 문제를 어떻게 해결할까 고민하다,  
-녹화강의가 있는 페이지의 html 파일을 찾아봤습니다.
-
-html script에 파라메터 값과 같은 문자열이 존재했습니다.
+녹화강의가 있는 페이지의 html 파일에서
+파라메터 값에 들어가는 문자열을 찾았습니다.
 
 `window.recordingMobilePlayData` 의 field id에 원하는 값이 들어가있었습니다.
 
 https://github.com/beardfriend/collect_engine/blob/1ee25fc4c83fd717e087817b4824e0aa2ba9c126/airflow/dags/collectors/zoom.py#L44-L66
 
-API를 잘 사용할 수 있게 됐습니다.
+API를 사용할 수 있게 됐습니다.
 
 ## 저장 프로세스
 
@@ -167,7 +168,7 @@ docker 내에서 selenium을 실행시킵니다.
 필요한 param 정보를 가져온 뒤  
 api로 요청하여 정보를 다음 process를 넘겨줍니다.
 
-mongodb에 api에서 가져온 정보를 추가해줍니다.  
+API에서 가져온 정보를 Mongodb에 추가해줍니다.  
 채팅 데이터 뿐만아니라 다른 데이터도 언제 쓰일지 모르기 떄문에 일단 수집해줍니다.  
 ![](docs/assets/mongodb02.jpg)
 
@@ -177,7 +178,7 @@ comments, comments_emojis, recomments, recomments_emojis에 넣어줍니다.
 
 ## 유저 데이터 수집
 
-mysql에 미리 유저 정보를 넣어놨습니다.  
+DB에 미리 유저 정보를 넣어놨습니다.  
 고유 값은 slack의 id값을 기준으로 하였습니다.
 
 slack에서 데이터를 유저 정보를 수집했습니다.  
